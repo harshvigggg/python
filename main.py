@@ -45,6 +45,9 @@ def main():
     balance = deposit()
     lines = get_num_of_lines()
     betamount = get_bet()
+    while((betamount*lines) > balance):
+        print("bet amount exceeded the balance, try again!")
+        betamount = get_bet()
     print(f"you are betting rupees {betamount} on {lines} lines, total bet is equal to: rupees {lines*betamount}")
 
 main()
