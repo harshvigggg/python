@@ -1,5 +1,6 @@
 MAX_LINES = 3
-
+MAX_BET = 100
+MIN_BET = 1
 def deposit():
     while True:
         amount = input("enter the amount you want to deposit:")
@@ -26,9 +27,24 @@ def get_num_of_lines():
             print("enter a number")
     return lines
 
+def get_bet(): #this is to ask user that though you have deposited a certain amount, how much do you want to bet out..
+    while True:
+        betamount = input("Enter the bet amount from " + str(MIN_BET) + " to " + str(MAX_BET)+ " ")
+        if betamount.isdigit():
+            betamount = int(betamount)
+            if MIN_BET <= betamount <= MAX_BET:
+                break
+            else:
+                print("enter the amount in the mentioned range")
+        else:
+            print("enter a valid number")
+    return betamount
+
+
 def main():
     balance = deposit()
     lines = get_num_of_lines()
-    print(balance, lines)
+    betamount = get_bet()
+    print(balance, lines,betamount)
 
 main()
