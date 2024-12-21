@@ -29,7 +29,7 @@ def get_num_of_lines():
 
 def get_bet(): #this is to ask user that though you have deposited a certain amount, how much do you want to bet out..
     while True:
-        betamount = input("Enter the bet amount from " + str(MIN_BET) + " to " + str(MAX_BET)+ " ")
+        betamount = input("Enter the bet amount from " + str(MIN_BET) + " to " + str(MAX_BET)+ " for each line ")
         if betamount.isdigit():
             betamount = int(betamount)
             if MIN_BET <= betamount <= MAX_BET:
@@ -45,6 +45,6 @@ def main():
     balance = deposit()
     lines = get_num_of_lines()
     betamount = get_bet()
-    print(balance, lines,betamount)
+    print(f"you are betting rupees {betamount} on {lines} lines, total bet is equal to: rupees {lines*betamount}")
 
 main()
